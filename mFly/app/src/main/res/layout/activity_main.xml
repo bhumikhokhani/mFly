@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@drawable/rect"
+    android:padding="16dp"
+    tools:context="io.github.controlwear.joystickdemo.MainActivity">
+
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/joystickView_left"
+        android:layout_width="167dp"
+        android:layout_height="171dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="32dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginRight="32dp"
+        android:layout_marginBottom="41dp"
+        android:background="@drawable/joystick_background"
+        android:keepScreenOn="true"
+        custom:JV_autoReCenterButton="false"
+        custom:JV_buttonDirection="both"
+        custom:JV_buttonImage="@drawable/ellipse"
+        custom:JV_fixedCenter="false" />
+
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/joystickView_right"
+        android:layout_width="169dp"
+        android:layout_height="204dp"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="64dp"
+        android:layout_marginRight="30dp"
+        android:layout_marginBottom="42dp"
+        android:background="@drawable/joystick_background2"
+        custom:JV_backgroundColor="@android:color/transparent"
+        custom:JV_borderColor="@android:color/transparent"
+        custom:JV_borderWidth="8dp"
+        custom:JV_buttonColor="#FF6E40"
+        custom:JV_buttonImage="@drawable/ellipse"
+        tools:JV_backgroundColor="@android:color/transparent" />
+
+    <Button
+        android:id="@+id/wifi"
+        android:layout_width="162dp"
+        android:layout_height="39dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="23dp"
+
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="91dp"
+        android:layout_toStartOf="@+id/joystickView_right"
+        android:layout_toEndOf="@+id/joystickView_left"
+        android:background="@drawable/connect"
+        android:textAppearance="@style/TextAppearance.AppCompat" />
+
+    <Button
+        android:id="@+id/menu"
+         android:layout_width="115dp"
+        android:layout_height="70dp"
+        android:background="@drawable/toolbar1"/>
+
+
+
+    <ImageView
+        android:id="@+id/cmp_logo"
+        android:layout_width="715dp"
+        android:layout_height="162dp"
+        app:srcCompat="@drawable/flotanomars_logo" />
+
+
+</RelativeLayout>
