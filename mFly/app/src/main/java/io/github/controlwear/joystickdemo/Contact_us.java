@@ -12,6 +12,7 @@ import android.widget.EditText;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.contact_us);
+            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
             ((Button) findViewById(R.id.btnOK)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
