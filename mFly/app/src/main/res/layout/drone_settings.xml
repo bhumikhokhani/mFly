@@ -4,23 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="horizontal"
     android:background="@drawable/rect">
 
-    <Button
-        android:id="@+id/mb4"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/r4"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.862"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.76" />
+
 
     <android.support.constraint.ConstraintLayout
         android:id="@+id/constraintLayout"
@@ -31,7 +18,7 @@
         tools:layout_editor_absoluteY="0dp">
 
         <Button
-            android:id="@+id/tuts_img"
+            android:id="@+id/RotorTL"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="8dp"
@@ -47,7 +34,7 @@
             app:layout_constraintVertical_bias="0.39" />
 
         <Button
-            android:id="@+id/contact_img"
+            android:id="@+id/RotorTR"
             android:layout_width="90dp"
             android:layout_height="90dp"
             android:layout_marginStart="8dp"
@@ -61,6 +48,37 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.39" />
+
+        <Button
+            android:id="@+id/RotorBL"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:background="@drawable/r3"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.741" />
+
+        <Button
+            android:id="@+id/RotorBR"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/r4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.862"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.76" />
 
         <ImageView
             android:id="@+id/drone_img"
@@ -78,7 +96,7 @@
             app:srcCompat="@drawable/drone_icon" />
 
         <ImageView
-            android:id="@+id/left_rotate"
+            android:id="@+id/top_left"
             android:layout_width="54dp"
             android:layout_height="57dp"
             android:layout_marginStart="8dp"
@@ -94,7 +112,23 @@
             app:srcCompat="@drawable/rotate_right" />
 
         <ImageView
-            android:id="@+id/down_left"
+            android:id="@+id/top_right"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.603"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.281"
+            app:srcCompat="@drawable/rotate_left" />
+
+        <ImageView
+            android:id="@+id/bottom_left"
             android:layout_width="54dp"
             android:layout_height="57dp"
             android:layout_marginStart="8dp"
@@ -109,37 +143,22 @@
             app:layout_constraintVertical_bias="0.718"
             app:srcCompat="@drawable/rotate_right" />
 
-        <Button
-            android:id="@+id/wifi_name_chan"
-            android:layout_width="249dp"
-            android:layout_height="82dp"
+        <ImageView
+            android:id="@+id/bottom_right"
+            android:layout_width="54dp"
+            android:layout_height="54dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="8dp"
             android:layout_marginBottom="8dp"
-            android:background="@drawable/change_wifi_name"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.263"
+            app:layout_constraintHorizontal_bias="0.603"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
+            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
+            app:layout_constraintVertical_bias="0.709"
+            app:srcCompat="@drawable/rotate_left" />
 
-        <Button
-            android:id="@+id/wifi_pass_chan"
-            android:layout_width="249dp"
-            android:layout_height="82dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            android:background="@drawable/change_wifi_password"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.832"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="1.0" />
     </android.support.constraint.ConstraintLayout>
 
     <Button
@@ -151,6 +170,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="8dp"
         android:background="@drawable/back_button"
+        android:onClick="BackToMenu"
         app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.013"
@@ -173,51 +193,7 @@
         app:layout_constraintVertical_bias="0.023"
         app:srcCompat="@drawable/motor_testing" />
 
-    <Button
-        android:id="@+id/faq_img"
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:background="@drawable/r3"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.102"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.741" />
 
-    <ImageView
-        android:id="@+id/right_rotate"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.603"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.281"
-        app:srcCompat="@drawable/rotate_left" />
 
-    <ImageView
-        android:id="@+id/down_right"
-        android:layout_width="54dp"
-        android:layout_height="54dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.603"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-        app:layout_constraintVertical_bias="0.709"
-        app:srcCompat="@drawable/rotate_left" />
 
 </android.support.constraint.ConstraintLayout>

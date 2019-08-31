@@ -6,38 +6,83 @@ package io.github.controlwear.joystickdemo;
         import android.widget.Button;
 
 public class MenuActivity extends MainActivity {
-    Button b1;
+   private Button mb1;
+   private Button mb2;
+   private Button mb3;
+   private Button mb4;
+   private Button mb5;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
 
-        b1 = (Button) findViewById(R.id.tuts_img);
-        b1.setOnClickListener(new View.OnClickListener() {
+        mb1 = (Button) findViewById(R.id.mdsbutton);
+        mb1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent in = new Intent(MenuActivity.this, drone_settings.class);
-                startActivity(in);
+                Intent intent = new Intent(MenuActivity.this, drone_settings.class);
+                startActivity(intent);
             }
         });
-        Button b2;
-        b2 = (Button) findViewById(R.id.contact_img);
-        b2.setOnClickListener(new View.OnClickListener() {
-
-
+        mb2 = (Button) findViewById(R.id.masbutton);
+        mb2.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent in = new Intent(MenuActivity.this, app_settings.class);
-                startActivity(in);
+                activitysettings();
+            }
+            public void activitysettings() {
+                Intent intent = new Intent(MenuActivity.this, app_settings.class);
+                startActivity(intent);
             }
         });
 
-        Button b3;
-        b3 = (Button) findViewById(R.id.button1);
-        b3.setOnClickListener(new View.OnClickListener() {
+        mb3 = (Button) findViewById(R.id.mpbutton);
+        mb3.setOnClickListener(new View.OnClickListener() {
+            @Override
             public void onClick(View v) {
-                Intent in = new Intent(MenuActivity.this, MainActivity.class);
-                startActivity(in);
+                profile();
+            }
+            public void profile() {
+                Intent intent = new Intent(MenuActivity.this, Profile.class);
+                startActivity(intent);
             }
         });
-    }}
+
+        mb4 = (Button) findViewById(R.id.mufbutton);
+        mb4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                update_firmware();
+            }
+            public void update_firmware() {
+                Intent intent = new Intent(MenuActivity.this, Update_Firmware.class);
+                startActivity(intent);
+            }
+        });
+
+        mb5 = (Button) findViewById(R.id.mhelpbutton);
+        mb5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openHelp();
+            }
+            public void openHelp() {
+                Intent intent = new Intent(MenuActivity.this, help.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    public void goTOProfile(View view) {
+        Intent intent = new Intent(MenuActivity.this, Profile.class);
+        startActivity(intent);
+    }
+
+    public void BackToMain(View view) {
+        Intent in = new Intent(MenuActivity.this, MainActivity.class);
+        startActivity(in);
+    }
+}

@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
     public String ch, ch2; //These store channel no.'s in string form.
     public String XV;
     public String YV;
-    public Button b1;
+    public Button mb;
     public Button wifi;
     public RequestQueue queue;
 
@@ -50,8 +50,8 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-            b1 = (Button) findViewById(R.id.menu);
-        b1.setOnClickListener(new View.OnClickListener() {
+        mb = (Button) findViewById(R.id.menu);
+        mb.setOnClickListener(new View.OnClickListener() {
 
 
                     public void onClick(View v) {

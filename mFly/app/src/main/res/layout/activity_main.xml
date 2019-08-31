@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     android:background="@drawable/rect"
     android:padding="16dp"
+    android:orientation="horizontal"
     tools:context="io.github.controlwear.joystickdemo.MainActivity">
 
 

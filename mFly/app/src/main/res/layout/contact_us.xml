@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bgb"
+    android:gravity="bottom"
+    android:orientation="vertical"
+    android:paddingLeft="128dp"
+    android:paddingRight="10dp">
+
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="421dp"
+        android:layout_height="78dp"
+        app:srcCompat="@drawable/contactus" />
+
+    <EditText
+        android:id="@+id/txtTo"
+        android:layout_width="420dp"
+        android:layout_height="120dp"
+        android:enabled="false"
+        android:gravity="bottom"
+        android:hint="To"
+        android:text="gousekhan07@gmail.com"
+        android:textColor="@android:color/background_light" />
+
+    <EditText
+        android:id="@+id/txtMessage"
+        android:layout_width="420dp"
+        android:layout_height="100dp"
+        android:layout_weight="1"
+        android:gravity="top"
+        android:hint="Message"
+        android:textColor="@android:color/darker_gray" />
+
+    <EditText
+        android:id="@+id/txtSubject"
+        android:layout_width="420dp"
+        android:layout_height="63dp"
+        android:hint="Subject"
+        android:textColor="@android:color/darker_gray" />
+
+    <Button
+        android:id="@+id/btnOK"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:text="Send" />
+</LinearLayout>
