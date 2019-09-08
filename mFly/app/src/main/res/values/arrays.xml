@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string-array name="firm">
-        <item>Version 1.1</item>
+        <item> <FONT COLOR="#FFFFF"> Version 1.1 </FONT> </item>
+
     </string-array>
     <string-array name="country_arrays">
-        <item>Version 1.1</item>
+        <item> <FONT COLOR="#FFFFF"> Version 1.1 </FONT> </item>
     </string-array>
 
 </resources>

@@ -12,7 +12,6 @@ import android.widget.EditText;
         protected void onCreate(Bundle savedInstanceState) {
             super.onCreate(savedInstanceState);
             setContentView(R.layout.contact_us);
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
             ((Button) findViewById(R.id.btnOK)).setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
@@ -27,5 +26,10 @@ import android.widget.EditText;
                     startActivity(Intent.createChooser(mail, "Send email via:"));
                 }
             });
+        }
+
+        public void backtoHelp(View view) {
+            Intent in = new Intent(Contact_us.this, help.class);
+            startActivity(in);
         }
     }

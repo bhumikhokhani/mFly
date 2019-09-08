@@ -1,79 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:theme="@style/AppTheme"
-    android:layout_width="wrap_content"
+    android:id="@+id/relativeLayout"
+    android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/rect"
-    android:padding="16dp"
     android:orientation="horizontal"
+    android:padding="16dp"
     tools:context="io.github.controlwear.joystickdemo.MainActivity">
 
 
-    <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/joystickView_left"
-        android:layout_width="167dp"
-        android:layout_height="171dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="32dp"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:layout_marginRight="32dp"
-        android:layout_marginBottom="41dp"
-        android:background="@drawable/joystick_background"
-        android:keepScreenOn="true"
-        custom:JV_autoReCenterButton="false"
-        custom:JV_buttonDirection="both"
-        custom:JV_buttonImage="@drawable/ellipse"
-        custom:JV_fixedCenter="false" />
-
-
-    <io.github.controlwear.virtual.joystick.android.JoystickView xmlns:custom="http://schemas.android.com/apk/res-auto"
-        android:id="@+id/joystickView_right"
-        android:layout_width="169dp"
-        android:layout_height="204dp"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginTop="64dp"
-        android:layout_marginRight="30dp"
-        android:layout_marginBottom="42dp"
-        android:background="@drawable/joystick_background2"
-        custom:JV_backgroundColor="@android:color/transparent"
-        custom:JV_borderColor="@android:color/transparent"
-        custom:JV_borderWidth="8dp"
-        custom:JV_buttonColor="#FF6E40"
-        custom:JV_buttonImage="@drawable/ellipse"
-        tools:JV_backgroundColor="@android:color/transparent" />
-
     <Button
         android:id="@+id/wifi"
-        android:layout_width="162dp"
-        android:layout_height="39dp"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="23dp"
-
-        android:layout_marginEnd="68dp"
-        android:layout_marginBottom="91dp"
-        android:layout_toStartOf="@+id/joystickView_right"
-        android:layout_toEndOf="@+id/joystickView_left"
-        android:background="@drawable/connect"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
+        android:layout_width="111dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/connectred"
+        android:onClick="wifi_connect"
+        android:textAppearance="@style/TextAppearance.AppCompat"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.391"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        app:layout_constraintVertical_bias="0.81" />
 
     <Button
         android:id="@+id/menu"
-         android:layout_width="115dp"
-        android:layout_height="70dp"
-        android:background="@drawable/toolbar1"/>
+        android:layout_width="50dp"
+        android:layout_height="47dp"
+        android:layout_marginStart="4dp"
+        android:background="@drawable/toolbar1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.009"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.046" />
 
 
+    <Button
+        android:id="@+id/arm_button"
+        android:layout_width="111dp"
+        android:layout_height="32dp"
+        android:layout_marginBottom="14dp"
+        android:background="@drawable/armred"
+        android:onClick="startChronometer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/joystickView_right"
+        app:layout_constraintHorizontal_bias="0.625"
+        app:layout_constraintStart_toStartOf="@+id/joystickView_left"
+        app:layout_constraintTop_toBottomOf="@+id/chronometer"
+        app:layout_constraintVertical_bias="0.819" />
 
     <ImageView
-        android:id="@+id/cmp_logo"
-        android:layout_width="715dp"
-        android:layout_height="162dp"
-        app:srcCompat="@drawable/flotanomars_logo" />
+        android:id="@+id/imageView6"
+        android:layout_width="178dp"
+        android:layout_height="114dp"
+        android:layout_marginTop="176dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/joystickView_right"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toEndOf="@+id/joystickView_left"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/timer" />
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="331dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/flotalogo" />
 
-</RelativeLayout>
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        android:id="@+id/joystickView_left"
+        android:layout_width="167dp"
+        android:layout_height="171dp"
+        android:layout_marginStart="25dp"
+        android:background="@drawable/joystick_background"
+        android:keepScreenOn="true"
+        app:JV_autoReCenterButton="true"
+        app:JV_buttonDirection="both"
+        app:JV_buttonImage="@drawable/ellipse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/menu"
+        app:layout_constraintVertical_bias="0.95" />
+
+    <io.github.controlwear.virtual.joystick.android.JoystickView
+        android:id="@+id/joystickView_right"
+        android:layout_width="169dp"
+        android:layout_height="204dp"
+        android:layout_marginEnd="25dp"
+        android:background="@drawable/joystick_background2"
+        app:JV_backgroundColor="@android:color/transparent"
+        app:JV_borderColor="@android:color/transparent"
+        app:JV_borderWidth="8dp"
+        app:JV_buttonColor="#FF6E40"
+        app:JV_buttonImage="@drawable/ellipse"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.955"
+        tools:JV_backgroundColor="@android:color/transparent" />
+
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="113dp"
+        android:layout_height="43dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/joystickView_right"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.091"
+        app:srcCompat="@drawable/wifibatbg" />
+
+    <Chronometer
+        android:id="@+id/chronometer"
+        android:layout_width="86dp"
+        android:layout_height="38dp"
+        android:layout_marginTop="7dp"
+        android:fontFamily="casual"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textColor="#FFFFFF"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/imageView6"
+        app:layout_constraintEnd_toEndOf="@id/imageView6"
+        app:layout_constraintHorizontal_bias="0.695"
+        app:layout_constraintStart_toStartOf="@id/imageView6"
+        app:layout_constraintTop_toTopOf="@id/imageView6"
+        app:layout_constraintVertical_bias="0.618" />
+
+    <ImageView
+        android:id="@+id/imageView9"
+        android:layout_width="37dp"
+        android:layout_height="43dp"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toStartOf="@+id/imageView12"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/charge5" />
+
+    <ImageView
+        android:id="@+id/wifi_sym"
+        android:layout_width="32dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageView7"
+        app:layout_constraintEnd_toEndOf="@+id/imageView7"
+        app:layout_constraintTop_toTopOf="@+id/imageView7"
+        app:srcCompat="@drawable/wifi_empty" />
+
+    <ImageView
+        android:id="@+id/imageView13"
+        android:layout_width="113dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toTopOf="@+id/chronometer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView5"
+        app:layout_constraintVertical_bias="0.0"
+        app:srcCompat="@drawable/attitudemeter" />
+
+</android.support.constraint.ConstraintLayout>

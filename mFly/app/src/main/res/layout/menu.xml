@@ -5,118 +5,87 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
 
-    android:background="@drawable/rect"
-    android:theme="@style/AppTheme">
+    android:background="@drawable/rect">
 
     <Button
         android:id="@+id/mdsbutton"
-        android:layout_width="216dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="214dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="188dp"
         android:background="@drawable/drone_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/masbutton"
-        android:layout_width="216dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="214dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="188dp"
         android:background="@drawable/app_settings"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.444" />
+        app:layout_constraintHorizontal_bias="0.839"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/mpbutton"
-        android:layout_width="216dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="214dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="108dp"
         android:background="@drawable/profile"
         android:onClick="goTOProfile"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.262"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
+        app:layout_constraintHorizontal_bias="0.213"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/mufbutton"
-        android:layout_width="216dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="214dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="108dp"
         android:background="@drawable/update_firmware"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.819"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.728" />
+        app:layout_constraintHorizontal_bias="0.836"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/mhelpbutton"
-        android:layout_width="216dp"
-        android:layout_height="78dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="214dp"
+        android:layout_height="51dp"
+        android:layout_marginBottom="28dp"
         android:background="@drawable/help"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.541"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.974" />
-
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="340dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:contentDescription="@string/menu_button"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.105"
-        app:srcCompat="@drawable/menu" />
+        app:layout_constraintHorizontal_bias="0.529"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/back"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="48dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="28dp"
         android:background="@drawable/back_button"
         android:onClick="BackToMain"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.024"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.115" />
+        app:layout_constraintVertical_bias="0.109" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="320dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="70dp"
+        android:layout_marginTop="40dp"
+        android:contentDescription="@string/menu_button"
+        app:layout_constraintEnd_toEndOf="@+id/masbutton"
+        app:layout_constraintHorizontal_bias="0.119"
+        app:layout_constraintStart_toStartOf="@+id/mdsbutton"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/menu" />
 
 </android.support.constraint.ConstraintLayout>

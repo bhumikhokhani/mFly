@@ -3,7 +3,7 @@
 #include <WiFiUdp.h>
 #include<SoftwareSerial.h>
 #include <Hash.h>
-//#include "MSP.h"
+#include "MSP.h"
 
 
 SoftwareSerial soft(5,4); //RX,TX -- D1,D2
@@ -15,7 +15,7 @@ SoftwareSerial soft(5,4); //RX,TX -- D1,D2
   WiFiUDP udp;
   unsigned int UDPPort = 4665;
   char incomingPacket[256];
-  char replyPacket[] = "Received";
+  char replyPacket[50];
 
   IPAddress APlocal_IP(192, 168, 4, 1);
   IPAddress APgateway(192, 168, 4, 1);
@@ -42,7 +42,7 @@ int ppm[CHANNEL_NUMBER];
 
 int alivecount =0;
 
-//MSP msp;
+MSP msp;
 
 
 void inline ppmISR(void){
@@ -112,7 +112,7 @@ void setup() {
   }
   interrupts();
   Serial.begin(115200);
- // msp.begin(Serial);
+  msp.begin(Serial);
 }
 
 
@@ -123,6 +123,7 @@ void loop(){
 
 void HandleClients(){
   int packetSize = udp.parsePacket();
+  int i;
   if(packetSize){
      digitalWrite(2, LOW);   
       int len = udp.read(incomingPacket,256);
@@ -130,18 +131,43 @@ void HandleClients(){
       {
         incomingPacket[len] = '\0';
         Serial.println(incomingPacket);
-        int j=0;
-        for(int i=0;i<5;i++)
+        if(incomingPacket[0] == '#')
+        {
+          uint8_t msg = 0,send_size= 0;
+          uint8_t* recv_size;i=1;
+          uint16_t * data = NULL;
+          
+          while(incomingPacket[0] != '\0')
           {
-            ppm[i]=0;
-            while(incomingPacket[j]!='*' && incomingPacket[j] !='\0')
-             {
-              ppm[i]*=10;
-              ppm[i]+=incomingPacket[j++]-'0';
-             }
-             j++;
-           }
-       }    
+           msg*=10;
+           msg += incomingPacket[i++];
+          } 
+          if(msp.request(msg,data,send_size,recv_size))
+          {
+            uint8_t *data_ptr = (uint8_t*)data;
+            for(i=0;i<*recv_size;++i)
+            replyPacket[i] = *(data_ptr++);
+            replyPacket[i] = '\0';
+            }
+          else
+           strcpy(replyPacket,"Issue With FCB.");
+          }
+        else
+        {
+         int j=0;
+         for( i=0;i<5;i++)
+           {
+             ppm[i]=0;
+             while(incomingPacket[j]!='*' && incomingPacket[j] !='\0')
+              {
+               ppm[i]*=10;
+               ppm[i]+=incomingPacket[j++]-'0';
+              }
+              j++;
+            }
+           strcpy(replyPacket,"Received");
+        }
+        }    
        
       udp.beginPacket(udp.remoteIP(),udp.remotePort());
       udp.write(replyPacket);

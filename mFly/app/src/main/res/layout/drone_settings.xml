@@ -4,10 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
     android:background="@drawable/rect"
-    android:theme="@style/AppTheme">
-
+    android:orientation="horizontal">
 
 
     <android.support.constraint.ConstraintLayout
@@ -15,186 +13,163 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/rect"
-        tools:layout_editor_absoluteX="-16dp"
+        tools:layout_editor_absoluteX="121dp"
         tools:layout_editor_absoluteY="0dp">
 
         <Button
             android:id="@+id/RotorTL"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="71dp"
+            android:layout_height="72dp"
+            android:layout_marginStart="128dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginBottom="202dp"
             android:background="@drawable/r1"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.1"
+            app:layout_constraintBottom_toBottomOf="@+id/drone_img"
+            app:layout_constraintEnd_toStartOf="@+id/top_left"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/RotorTR"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="71dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="48dp"
+            android:layout_marginEnd="128dp"
             android:background="@drawable/r2"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/drone_img"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.857"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.39" />
+            app:layout_constraintHorizontal_bias="0.842"
+            app:layout_constraintStart_toEndOf="@+id/bottom_right"
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/RotorBL"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
+            android:layout_width="72dp"
+            android:layout_height="73dp"
+            android:layout_marginStart="116dp"
+            android:layout_marginTop="207dp"
+            android:layout_marginBottom="80dp"
             android:background="@drawable/r3"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.102"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/top_left"
+            app:layout_constraintHorizontal_bias="0.166"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="0.741" />
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
+            app:layout_constraintVertical_bias="0.0" />
 
         <Button
             android:id="@+id/RotorBR"
-            android:layout_width="90dp"
-            android:layout_height="90dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_width="71dp"
+            android:layout_height="72dp"
+            android:layout_marginTop="88dp"
+            android:layout_marginEnd="55dp"
             android:background="@drawable/r4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.862"
+            app:layout_constraintHorizontal_bias="0.313"
+            app:layout_constraintStart_toEndOf="@+id/top_right"
+            app:layout_constraintTop_toBottomOf="@+id/RotorTR"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <Button
+            android:id="@+id/button10"
+            android:layout_width="50dp"
+            android:layout_height="47dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/back_button"
+            android:onClick="BackToMenu"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.76" />
+            app:layout_constraintVertical_bias="0.034" />
 
         <ImageView
             android:id="@+id/drone_img"
             android:layout_width="469dp"
             android:layout_height="320dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginTop="2dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.457"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.493"
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/drone_icon" />
 
         <ImageView
             android:id="@+id/top_left"
             android:layout_width="54dp"
             android:layout_height="57dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/drone_img"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.402"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.339"
+            android:layout_marginStart="142dp"
+            android:layout_marginTop="63dp"
+            android:layout_marginEnd="84dp"
+            app:layout_constraintBottom_toTopOf="@+id/drone_img"
+            app:layout_constraintEnd_toStartOf="@+id/top_right"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/drone_img"
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/rotate_right" />
 
         <ImageView
             android:id="@+id/top_right"
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
-            app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.603"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.281"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="64dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginBottom="88dp"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_right"
+            app:layout_constraintEnd_toStartOf="@+id/RotorTR"
+            app:layout_constraintStart_toStartOf="@+id/drone_img"
+            app:layout_constraintTop_toBottomOf="@+id/motoe_testing_txt"
             app:srcCompat="@drawable/rotate_left" />
 
         <ImageView
             android:id="@+id/bottom_left"
             android:layout_width="54dp"
             android:layout_height="57dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="140dp"
+            android:layout_marginTop="84dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.402"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.718"
+            app:layout_constraintEnd_toStartOf="@+id/bottom_right"
+            app:layout_constraintHorizontal_bias="0.023"
+            app:layout_constraintStart_toStartOf="@+id/drone_img"
+            app:layout_constraintTop_toBottomOf="@+id/top_left"
+            app:layout_constraintVertical_bias="0.047"
             app:srcCompat="@drawable/rotate_right" />
 
         <ImageView
             android:id="@+id/bottom_right"
             android:layout_width="54dp"
             android:layout_height="54dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginStart="280dp"
+            android:layout_marginTop="206dp"
+            android:layout_marginEnd="135dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.603"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/constraintLayout"
-            app:layout_constraintVertical_bias="0.709"
+            app:layout_constraintEnd_toEndOf="@+id/drone_img"
+            app:layout_constraintStart_toStartOf="@+id/drone_img"
+            app:layout_constraintTop_toTopOf="@+id/drone_img"
+            app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/rotate_left" />
 
+        <ImageView
+            android:id="@+id/motoe_testing_txt"
+            android:layout_width="539dp"
+            android:layout_height="41dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="50dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/button10"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/motor_testing" />
+
     </android.support.constraint.ConstraintLayout>
-
-    <Button
-        android:id="@+id/button10"
-        android:layout_width="101dp"
-        android:layout_height="97dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="8dp"
-        android:background="@drawable/back_button"
-        android:onClick="BackToMenu"
-        app:layout_constraintBottom_toBottomOf="@+id/constraintLayout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.013"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.026" />
-
-    <ImageView
-        android:id="@+id/motoe_testing_txt"
-        android:layout_width="596dp"
-        android:layout_height="56dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/constraintLayout"
-        app:layout_constraintHorizontal_bias="0.464"
-        app:layout_constraintStart_toStartOf="@+id/constraintLayout"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023"
-        app:srcCompat="@drawable/motor_testing" />
-
-
 
 
 </android.support.constraint.ConstraintLayout>

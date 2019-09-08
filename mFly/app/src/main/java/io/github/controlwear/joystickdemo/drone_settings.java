@@ -31,6 +31,7 @@ public class drone_settings extends MenuActivity {
         setContentView(R.layout.drone_settings);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
 
+
         RotorTL=findViewById(R.id.RotorTL);
         top_left=findViewById(R.id.top_left);
 

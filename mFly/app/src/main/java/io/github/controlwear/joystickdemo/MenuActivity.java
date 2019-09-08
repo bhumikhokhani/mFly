@@ -19,6 +19,8 @@ public class MenuActivity extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
+
         mb1 = (Button) findViewById(R.id.mdsbutton);
         mb1.setOnClickListener(new View.OnClickListener() {
             @Override

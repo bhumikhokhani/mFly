@@ -4,61 +4,75 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bgc"
-    android:theme="@style/AppTheme">
+    android:background="@drawable/bgc">
 
     <Button
         android:id="@+id/back"
-        android:layout_width="94dp"
-        android:layout_height="83dp"
+        android:layout_width="48dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/back_button"
         android:onClick="BackToMenu"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.025"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.085" />
+        app:layout_constraintVertical_bias="0.003" />
 
     <ImageView
         android:id="@+id/upd_firm"
-        android:layout_width="591dp"
-        android:layout_height="57dp"
+        android:layout_width="574dp"
+        android:layout_height="46dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.692"
+        app:layout_constraintHorizontal_bias="0.885"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.045"
+        app:layout_constraintVertical_bias="0.09"
         app:srcCompat="@drawable/updatefirmware" />
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="483dp"
-        android:layout_height="52dp"
-        android:background="#323232"
+        android:layout_width="305dp"
+        android:layout_height="42dp"
+        android:background="@android:color/transparent"
+        android:dropDownSelector="@android:color/background_light"
         android:entries="@array/firm"
-        android:foreground="@drawable/browsebutton"
+        android:foreground="@drawable/dropbox"
         android:gravity="clip_vertical"
+        android:scrollbarThumbHorizontal="@android:color/transparent"
+        android:scrollbarThumbVertical="@android:color/transparent"
         android:spinnerMode="dropdown"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.193"
+        app:layout_constraintHorizontal_bias="0.861"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.534" />
+        app:layout_constraintVertical_bias="0.52" />
 
     <Button
         android:id="@+id/flash"
-        android:layout_width="69dp"
-        android:layout_height="37dp"
-        android:background="@drawable/update"
+        android:layout_width="184dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="72dp"
+        android:background="@drawable/flashbutton"
         android:drawingCacheQuality="high"
         android:onClick="doToast"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.141"
-        app:layout_constraintStart_toEndOf="@+id/spinner"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.553" />
+        app:layout_constraintVertical_bias="0.781" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="292dp"
+        android:layout_height="49dp"
+        android:layout_marginBottom="154dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/selectfirmware" />
 </android.support.constraint.ConstraintLayout>

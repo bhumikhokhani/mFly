@@ -2,7 +2,7 @@
 <resources>
     <color name="colorPrimary">#020202</color>
     <color name="colorPrimaryDark">#000000</color>
-    <color name="colorAccent">#dad715</color>
+    <color name="colorAccent">#DAD715</color>
     <color name="colorSplash">#F2E9E9</color>
     <color name="spinner_text_color">#FF0000</color>
 </resources>

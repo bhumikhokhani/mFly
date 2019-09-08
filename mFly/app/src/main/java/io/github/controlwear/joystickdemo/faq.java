@@ -14,6 +14,7 @@ public class faq extends help {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_faq);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
     }
 
     public void BackTohelp(View view) {

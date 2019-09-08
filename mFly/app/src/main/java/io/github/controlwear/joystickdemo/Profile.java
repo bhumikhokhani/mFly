@@ -5,34 +5,104 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.app.Activity;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import java.io.BufferedReader;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
 
-    public class Profile extends MenuActivity {
 
-        Button mButton;
-        EditText mEdit;
-        TextView mText;
+public class Profile extends MenuActivity {
+    private static final String USER_NAME = "username.txt";
 
-        @Override
-        public void onCreate(Bundle savedInstanceState) {
-            super.onCreate(savedInstanceState);
-            setContentView(R.layout.activity_profile);
-            getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
-            mButton = (Button) findViewById(R.id.button1);
+    Button mButton;
+    Button time;
+    EditText mEdit;
+    TextView mText;
 
-            mButton.setOnClickListener(new View.OnClickListener() {
-                public void onClick(View view) {
-                    mEdit = (EditText) findViewById(R.id.editText1);
-                    mText = (TextView) findViewById(R.id.textView1);
-                    mText.setText("Pilot " + mEdit.getText().toString());
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_profile);
+        View v=new View (this);
+        load(v);
+
+        mEdit = (EditText) findViewById(R.id.editText1);
+
+
+        mButton = (Button) findViewById(R.id.button_save);
+        mButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+                mEdit = (EditText) findViewById(R.id.editText1);
+                mText = (TextView) findViewById(R.id.textView1);
+                String text = mEdit.getText().toString();
+                mText.setText("Pilot " + mEdit.getText().toString());
+            }
+        });
+    }
+    public void save(View view) {
+        String text = mEdit.getText().toString();
+        FileOutputStream fos = null;
+
+        try {
+            fos = openFileOutput(USER_NAME, MODE_PRIVATE);
+            fos.write(text.getBytes());
+
+            mEdit.getText().clear();
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fos != null) {
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-            }); }
-
-        public void BackToMenu(View view) {
-            Intent in = new Intent(Profile.this, MenuActivity.class);
-            startActivity(in);
+            }
         }
     }
+
+    public void load(View view){
+        FileInputStream fis = null;
+        try {
+            fis = openFileInput(USER_NAME);
+            InputStreamReader isr = new InputStreamReader(fis);
+            BufferedReader br = new BufferedReader(isr);
+            StringBuilder sb = new StringBuilder();
+            String text;
+
+            while ((text = br.readLine()) != null){
+                sb.append(text).append("\n");
+
+            }
+
+            mEdit.setText(sb.toString());
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (fis != null){
+                try {
+                    fis.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+
+    }
+
+    public void BackToMenu(View view) {
+        Intent in = new Intent(Profile.this, MenuActivity.class);
+        startActivity(in);
+    }
+
+}

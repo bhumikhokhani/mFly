@@ -14,6 +14,7 @@ public class help extends MainActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.help);
         getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_HIDE_NAVIGATION | View.SYSTEM_UI_FLAG_IMMERSIVE_STICKY);
+
     }
 
 
