@@ -5,11 +5,16 @@ import io.github.controlwear.virtual.joystick.android.JoystickView;
 
 import android.annotation.SuppressLint;
 
+import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
+import android.net.Network;
+import android.net.NetworkCapabilities;
 import android.net.NetworkInfo;
+import android.net.NetworkRequest;
 import android.net.wifi.ScanResult;
+import android.net.wifi.SupplicantState;
 import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
@@ -18,6 +23,7 @@ import android.os.StrictMode;
 import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Chronometer;
@@ -25,6 +31,8 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -33,6 +41,7 @@ import java.net.SocketException;
 import java.net.UnknownHostException;
 import java.util.List;
 import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -48,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private boolean running =false;
     public boolean connected =false;
     public WifiManager wifi;
+    public ConnectivityManager connection_manager;
     public WifiConfiguration conf;
     public Context context;
     public Button arm;
@@ -57,8 +67,8 @@ public class MainActivity extends AppCompatActivity {
 
     // ImageView wifiStatus;
     public byte[] buff = new byte[1024];
-    public String SSID = "edu_drone";
-    public String Password = "fltdev@123";
+    public String SSID = "edu_drone";                                 //"edu_drone";
+    public String Password = "fltdev@123";                                  //"fltdev@123";
     private ScanResult[] wifiScanResultList;
 
 
@@ -69,7 +79,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         wifi_symb= (ImageView) findViewById(R.id.wifi_sym);
-
+        connection_manager = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         armed_f= false;
         msg =0;
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
@@ -129,21 +139,35 @@ public class MainActivity extends AppCompatActivity {
 
     public void startChronometer(View v) {
         View x = v;
-        if (!running && connected) {
-            chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
-            chronometer.start();
-            values[4] = 2000;
-            arm.setBackgroundResource(R.drawable.armgreen);
-            running = true;
+        if (connected) {
+            if (!running) {
+                chronometer.setBase(SystemClock.elapsedRealtime() - pauseOffset);
+                chronometer.start();
+                values[4] = 2000;
+                arm.setBackgroundResource(R.drawable.armgreen);
+                running = true;
+            } else
+                resetChronometer(x);
         }
-        else
-            resetChronometer(x);
-    }
+        }
 
     public void resetChronometer(View v) {
         if (running && connected) {
+
             chronometer.stop();
             pauseOffset = SystemClock.elapsedRealtime() - chronometer.getBase();
+            pauseOffset/=1000;
+            String flight_time =Long.toString(pauseOffset);
+            Toast.makeText(getApplicationContext(),"Flight Time: "+flight_time+" s", Toast.LENGTH_SHORT).show();
+            FileOutputStream fos;
+            try {
+                fos = openFileOutput("flighttime.txt",MODE_PRIVATE);
+                fos.write(flight_time.getBytes());
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
             arm.setBackgroundResource(R.drawable.armred);
             values[4] = 1000;
             running = false;
@@ -152,14 +176,13 @@ public class MainActivity extends AppCompatActivity {
         pauseOffset = 0;
     }
 
-    public void wifi_connect(View v) {
+    @SuppressLint("NewApi")
+    public void wifi_connect(View v) throws InterruptedException {
         wifi = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
         if (!connected) {
             turnWifiOnOff(context, true);
-            connected = true;
             Toast.makeText(getApplicationContext(), "Connecting...", Toast.LENGTH_SHORT).show();
             //attempting a connection with drone...
-
             conf = new WifiConfiguration();
             conf.SSID = "\"" + SSID + "\"";
             conf.preSharedKey = "\"" + Password + "\"";
@@ -173,18 +196,40 @@ public class MainActivity extends AppCompatActivity {
             int netId = wifi.addNetwork(conf);
             wifi.disconnect();
             wifi.enableNetwork(netId, true);
-            WifiInfo wifiInfo = wifi.getConnectionInfo();
-            String ssid = wifiInfo.getSSID();
-            if (SSID == ssid)
-            { Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
+            TimeUnit.SECONDS.sleep(3);
+          //  String  ssid = "No";
+
+            /*ConnectivityManager connManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            NetworkInfo networkInfo = connManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI);
+            if (networkInfo.isConnected()) {
+                WifiManager wifiManager = (WifiManager) context.getApplicationContext().getSystemService(Context.WIFI_SERVICE);
+                WifiInfo wifiInfo = wifiManager.getConnectionInfo();
+                wifiInfo.getSSID();
+                String name = networkInfo.getExtraInfo();
+                ssid = wifiInfo.getSSID();
+                ssid.replaceAll("^\"|\"$", "");
+            }*/
+           // Log.d("SSID",ssid);
+          //  if (SSID == ssid) {
+                Toast.makeText(getApplicationContext(), "Connected", Toast.LENGTH_SHORT).show();
                 connected = true;
                 conn.setBackgroundResource(R.drawable.connectgreen);
+                NetworkRequest.Builder request = new NetworkRequest.Builder();
+                request.addTransportType(NetworkCapabilities.TRANSPORT_WIFI);
+
+                connection_manager.registerNetworkCallback(request.build(), new ConnectivityManager.NetworkCallback() {
+
+                            @Override
+                            public void onAvailable(Network network) {
+                                ConnectivityManager.setProcessDefaultNetwork(network);
+                            }
+                        });
                 customHandler = new android.os.Handler();
                 customHandler.postDelayed(updateTimerThread, 0);
-            }
-            else{
+           //}
+           // else{
                 Toast.makeText(getApplicationContext(), "Unable to Connect", Toast.LENGTH_SHORT).show();
-            }
+           // }
         } else {
             turnWifiOnOff(context, false);
             connected = false;
@@ -196,9 +241,6 @@ public class MainActivity extends AppCompatActivity {
 
     private void signal_strength()
     {
-        for (ScanResult result : wifiScanResultList) {
-            int signalLevel = result.level;
-
             WifiManager wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
             int numberOfLevels = 5;
             WifiInfo wifiInfo = wifiManager.getConnectionInfo();
@@ -206,41 +248,33 @@ public class MainActivity extends AppCompatActivity {
             int level = WifiManager.calculateSignalLevel(wifiInfo.getRssi(), numberOfLevels);
 
             wifiManager = (WifiManager) context.getSystemService(Context.WIFI_SERVICE);
-//Level of a Scan Result
-            List<ScanResult> wifiList = wifiManager.getScanResults();
-            for (ScanResult scanResult : wifiList) {
-                level = WifiManager.calculateSignalLevel(scanResult.level, 5);
-            }
-
 // Level of current connection
             int rssi = wifiManager.getConnectionInfo().getRssi();
             level = WifiManager.calculateSignalLevel(rssi, 5);
-
-            if (level <= 0 && level >= -50) {
+           // Log.d("Level",Integer.toString(level));
+            if (level ==4) {
                 wifi_symb.setImageResource(R.drawable.wifi_full);
 
-            } else if (level < -50 && level >= -70) {
+            } else if (level == 3) {
                 wifi_symb.setImageResource(R.drawable.wifi75);
 
-            } else if (level < -70 && level >= -80) {
+            } else if (level ==2) {
                 wifi_symb.setImageResource(R.drawable.wifi50);
 
 
-            } else if (level < -80 && level >= -100) {
+            } else if (level ==1) {
                 wifi_symb.setImageResource(R.drawable.wifi25);
 
             } else {
                 wifi_symb.setImageResource(R.drawable.wifi_empty);
             }
         }
-    }
     private Runnable updateTimerThread = new Runnable()
     {
         public void run()
         {
-            //write here whaterver you want to repeat
             signal_strength();
-            customHandler.postDelayed(this, 2000);
+            customHandler.postDelayed(this, 200);
         }
     };
     private void init()

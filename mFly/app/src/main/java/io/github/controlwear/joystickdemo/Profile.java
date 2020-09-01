@@ -29,18 +29,17 @@ public class Profile extends MenuActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         View v=new View (this);
-        load(v);
-
         mEdit = (EditText) findViewById(R.id.editText1);
-
+        mText = (TextView) findViewById(R.id.textView1);
+        load(v);
 
         mButton = (Button) findViewById(R.id.button_save);
         mButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-                mEdit = (EditText) findViewById(R.id.editText1);
-                mText = (TextView) findViewById(R.id.textView1);
+
                 String text = mEdit.getText().toString();
                 mText.setText("Pilot " + mEdit.getText().toString());
+                save(view);
             }
         });
     }
@@ -51,7 +50,6 @@ public class Profile extends MenuActivity {
         try {
             fos = openFileOutput(USER_NAME, MODE_PRIVATE);
             fos.write(text.getBytes());
-
             mEdit.getText().clear();
 
         } catch (FileNotFoundException e) {
@@ -83,7 +81,7 @@ public class Profile extends MenuActivity {
 
             }
 
-            mEdit.setText(sb.toString());
+            mText.setText("Pilot "+sb.toString());
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
