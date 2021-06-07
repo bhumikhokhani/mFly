@@ -8,7 +8,7 @@
     android:background="@drawable/rect"
     android:orientation="horizontal"
     android:padding="16dp"
-    tools:context="io.github.controlwear.joystickdemo.MainActivity">
+    tools:context="io.github.controlwear.controller.MainActivity">
 
 
     <Button

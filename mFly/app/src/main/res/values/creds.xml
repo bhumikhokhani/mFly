@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="FCB_SSID">edu_drone</string>
+    <string name="FCB_PASSWORD">"fltdev@123"</string>
+</resources>

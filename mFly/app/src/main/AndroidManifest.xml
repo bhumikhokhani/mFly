@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="io.github.controlwear.joystickdemo">
+    package="io.github.controlwear.controller">
     <compatible-screens>
         <!-- all small size screens -->
         <screen android:screenSize="small" android:screenDensity="ldpi" />
@@ -25,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="io.github.controlwear.controller.SplashActivity"
             android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,7 +34,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="io.github.controlwear.controller.MainActivity"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4">
             <intent-filter>
@@ -44,23 +44,23 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MenuActivity"
+            android:name="io.github.controlwear.controller.MenuActivity"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4" />
         <activity
-            android:name=".app_settings"
+            android:name="io.github.controlwear.controller.app_settings"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".drone_settings"
+            android:name="io.github.controlwear.controller.drone_settings"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".Profile"
+            android:name="io.github.controlwear.controller.Profile"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".Update_Firmware"
+            android:name="io.github.controlwear.controller.Update_Firmware"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
@@ -68,15 +68,15 @@
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".Contact_us"
+            android:name="io.github.controlwear.controller.Contact_us"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".faq"
+            android:name="io.github.controlwear.controller.faq"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
         <activity
-            android:name=".Tutorials"
+            android:name="io.github.controlwear.controller.Tutorials"
             android:screenOrientation="landscape"
             android:maxAspectRatio="2.4"/>
 
