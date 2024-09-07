@@ -7,7 +7,6 @@ This Project is designed to bring hobby flying to a budget-friendly customer bas
 ![alt text](https://github.com/vishnu-trace/mFly/blob/master/Res/Thmb2.png)<br>
 
 <b>Development Hardware used: </b><br>
-
 Flight reciever : Esp8266 <br>
 Flight controller : ATmega328p MCU based <br><br>
 
